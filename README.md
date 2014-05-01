@@ -1,3 +1,4 @@
-The OpenShift `jbossews` cartridge documentation can be found at:
+spr-mvc-hib
+===========
 
-http://openshift.github.io/documentation/oo_cartridge_guide.html#tomcat
+Spring MVC + Hibernate + Maven tutorial with all CRUD operations
