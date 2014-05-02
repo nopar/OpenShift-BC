@@ -17,9 +17,9 @@
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://$OPENSHIFT_MARIADB_DB_HOST:$OPENSHIFT_MARIADB_DB_PORT/nts_bakalarka"/>
-      <property name="javax.persistence.jdbc.password" value="nuU9T87zHhLu"/>
+      <property name="javax.persistence.jdbc.password" value="${OPENSHIFT_MYSQL_DB_PASSWORD}"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.user" value="admin1aFMIqi"/>
+      <property name="javax.persistence.jdbc.user" value="${OPENSHIFT_MYSQL_DB_USERNAME}"/>
     </properties>
   </persistence-unit>
 </persistence>
