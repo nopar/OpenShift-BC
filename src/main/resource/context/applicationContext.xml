@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<context:annotation-config/>
+
+    <!-- 
+    //
+    //	Nahraj property file a vyrob z neho bean.
+    // 
+    -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:/application.properties</value>
+		</property>
+	</bean>
+
+
+    <!-- 
+    //
+    //	Hibernate integracia - vytvor beany pre hibernate
+    // 
+    -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.hrabkov.model.Postar</value>
+				<value>com.hrabkov.model.PostovyList</value>
+				<value>com.hrabkov.model.User</value>
+			</list>
+		</property>
+        <property name="hibernateProperties">
+            <props>
+            	<prop key="current_session_context_class">thread</prop>
+                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+	<bean id="transactionManager"
+        class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- 
+    //
+    //	Automaticky vytvor beany z nasledujucich balickov ak tam najdes danu anotaciu.
+    // 
+    -->
+    <context:component-scan base-package="com.hrabkov.service">
+      <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+    <context:component-scan base-package="com.hrabkov.assembler">
+      <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>    
+    <context:component-scan base-package="com.hrabkov.dao">
+      <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
+</beans>    
