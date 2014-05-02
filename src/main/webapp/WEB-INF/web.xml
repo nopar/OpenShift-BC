@@ -40,7 +40,7 @@
 
 	<servlet-mapping>
 		<servlet-name>PostarDispatcherServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/app/*</url-pattern>
 	</servlet-mapping>
 
 	<!-- We don't use Tomcat sessions so turn off session timeout -->
