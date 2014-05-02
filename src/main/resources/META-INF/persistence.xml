@@ -16,10 +16,10 @@
     <class>com.sprhib.model.Nastavenie</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nts_bakalarka"/>
-      <property name="javax.persistence.jdbc.password" value="root"/>
+      <property name="javax.persistence.jdbc.url" value="mysql://$OPENSHIFT_MARIADB_DB_HOST:$OPENSHIFT_MARIADB_DB_PORT/nts_bakalarka"/>
+      <property name="javax.persistence.jdbc.password" value="nuU9T87zHhLu"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.user" value="admin1aFMIqi"/>
     </properties>
   </persistence-unit>
 </persistence>
