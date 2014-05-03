@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "STAT", catalog = "nts_bakalarka", schema = "")
+@XmlRootElement
 public class Stat implements Serializable {
    // private static final long serialVersionUID = 1L;
     
