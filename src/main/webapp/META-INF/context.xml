@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/nts">
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="bakalarka" password="nuU9T87zHhLu" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3307/nts_bakalarka?zeroDateTimeBehavior=convertToNull" username="admin1aFMIqi"/>
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="localBakalarka" password="kpepek" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull" username="root"/>
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="lokalBakalarka" password="kpepek" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/nts_bakalarka?zeroDateTimeBehavior=convertToNull" username="root"/>
-  <ResourceLink global="jdbc/mysql" name="jdbc/mysql" type="javax.sql.DataSource"/>
+    
+    <ResourceLink name="jdbc/mysql" global="jdbc/mysql" type="javax.sql.DataSource"/>
 </Context>
+
+
