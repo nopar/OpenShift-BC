@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-        <persistence-unit name="com.mvchib_Bakalarka-NTS_war_0.0.2-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+<!--        <persistence-unit name="com.mvchib_Bakalarka-NTS_war_0.0.2-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>com.sprhib.model.Skupiny</class>
         <class>com.sprhib.model.Odber</class>
@@ -21,8 +21,10 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.user" value="${OPENSHIFT_MYSQL_DB_USERNAME}"/>
         </properties>
-    </persistence-unit>
-<!--    <persistence-unit name="com.mvchib_Bakalarka-NTS_war_0.0.2-SNAPSHOTPU">
+    </persistence-unit>-->
+    
+    
+    <persistence-unit name="com.mvchib_Bakalarka-NTS_war_0.0.2-SNAPSHOTPU">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>com.sprhib.model.Skupiny</class>
         <class>com.sprhib.model.Odber</class>
@@ -52,5 +54,5 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
         </properties>
-    </persistence-unit>-->
+    </persistence-unit>
 </persistence>

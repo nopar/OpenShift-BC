@@ -1,19 +1,22 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-        <title>Edit team page</title>
+        <title>Editácia štátu</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="../../resources/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/menu.css" rel="stylesheet" type="text/css"/> 
+
     </head>
     <body>
-        <h1>Edit team page</h1>
-        <p>Here you can edit the existing team.</p>
+        <h1>Editácia štátu</h1>
+
         <p>${message}</p>
 
         <form:form method="POST" commandName="stat" action="${pageContext.request.contextPath}/stat/edit/${stat.idStat}.html">
@@ -33,13 +36,20 @@
                         <td><form:input path="skratka" /></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" value="Edit" /></td>
+                        <td><input type="submit" value="Uložiť" /></td>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
         </form:form>
 
-        <p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
+        <p>
+            <button onclick="location.href = '${pageContext.request.contextPath}/index.html'">
+                Domov
+            </button>
+
+            <INPUT Type="button" VALUE="Naspäť" onClick="history.go(-1);
+                    return true;"></INPUT>
+        </p>
     </body>
 </html>

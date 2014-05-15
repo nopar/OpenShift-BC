@@ -1,38 +1,47 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Add team page</title>
-</head>
-<body>
-<h1>Add team page</h1>
-<p>Here you can add a new team.</p>
-<form:form method="POST" commandName="skupiny" action="${pageContext.request.contextPath}/skupiny/add.html">
-<table>
-<tbody>
-	<tr>
-		<td>Autorita:</td>
-		<td><form:input path="autorita" /></td>
-	</tr>
-	<tr>
-		<td>Specialne:</td>
-		<td><form:input path="specialne" /></td>
-	</tr>
-	<tr>
-		<td><input type="submit" value="Add" /></td>
-		<td></td>
-	</tr>
-</tbody>
-</table>
-</form:form>
+    <head>
+        <title>Pridaj skupinu</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+         <link href="../resources/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/css/menu.css" rel="stylesheet" type="text/css"/>        
+    </head>
+    <body>
+        <h1>Pridaj skupinu</h1>
+       
+        <form:form method="POST" commandName="skupiny" action="${pageContext.request.contextPath}/skupiny/add.html">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Autorita:</td>
+                        <td><form:input path="autorita" /></td>
+                    </tr>
+                    <tr>
+                        <td>Specialne:</td>
+                        <td><form:input path="specialne" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Add" /></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form:form>
 
-<p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
-</body>
+        <p>
+            <button onclick="location.href = '${pageContext.request.contextPath}/index.html'">
+                Domov
+            </button>
+
+            <INPUT Type="button" VALUE="Naspäť" onClick="history.go(-1);
+            return true;"></INPUT>
+        </p>
+    </body>
 </html>

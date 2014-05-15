@@ -107,7 +107,7 @@ function showPosition(position)
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 
     }
-
+//treba dat pozor nepojde z mazania alebo z editovania
     xmlhttp.open("GET", "resources/poi.xml", false);
 
     xmlhttp.send();
@@ -185,7 +185,6 @@ function showError(error)
             break;
 
     }
-
 
 }
 
