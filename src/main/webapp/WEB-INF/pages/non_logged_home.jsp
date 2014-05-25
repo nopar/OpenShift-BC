@@ -2,6 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="cor" %>
+<%@taglib prefix="i" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -34,11 +35,29 @@
                        alt="Login"
                        class="log_icon"
                        onclick="location.href ='${pageContext.request.contextPath}/login'"/>
-                <input type="image"
-                       src="${pageContext.request.contextPath}/resources/img/exit.png"
-                       alt="Logout"
-                       class="log_icon"
-                       onclick="location.href ='${pageContext.request.contextPath}/'"/>            
+                
+                <i:if test="${pageContext.request.userPrincipal.name != null}">
+                            <input type="image"
+                                   src="${pageContext.request.contextPath}/resources/img/exit.png"
+                                   alt="Logout"
+                                   class="log_icon"
+                                   href="<c:url value="/j_spring_security_logout" />"
+                                   onclick="location.href ='javascript:formSubmit()'"/>
+                            
+                        
+                    </i:if>
+                            
+                <i:url value="/j_spring_security_logout" var="logoutUrl" />
+                    <form action="${logoutUrl}" method="post" id="logoutForm">
+                        <input type="hidden" name="${_csrf.parameterName}"
+                               value="${_csrf.token}" />
+                    </form>
+                    <script>
+                            function formSubmit() {
+                                    document.getElementById("logoutForm").submit();
+                            }
+                    </script>
+                    
             </div>
             
                  
@@ -56,6 +75,13 @@
                     </ul>
                 </li>
                 
+                <i:if test="${pageContext.request.userPrincipal.name != null}">
+                    <li><a  class="backbutton"
+                        href="#">Prihlásení: ${pageContext.request.userPrincipal.name}</a>
+                   
+                </li>
+                </i:if>
+                
                 <div id="lavalamp"></div>
             </ul>
             </div>
@@ -70,7 +96,9 @@
         </cor:if>
                         
 
-            <h1>Prosím prihláste sa</h1>
+            <center>
+                <h1>Prosím prihláste sa</h1>
+            </center>
 
 
             <p id="x"></p><br>

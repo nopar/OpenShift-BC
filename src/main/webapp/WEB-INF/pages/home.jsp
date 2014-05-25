@@ -2,6 +2,9 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="cor" %>
+<%@taglib prefix="i" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@page session="true"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -35,13 +38,32 @@
                        alt="Login"
                        class="log_icon"
                        onclick="location.href ='${pageContext.request.contextPath}/login'"/>-->
+
+                    <i:url value="/j_spring_security_logout" var="logoutUrl" />
+                    <form action="${logoutUrl}" method="post" id="logoutForm">
+                        <input type="hidden" name="${_csrf.parameterName}"
+                               value="${_csrf.token}" />
+                    </form>
+                    <script>
+                            function formSubmit() {
+                                    document.getElementById("logoutForm").submit();
+                            }
+                    </script>
+                    
             
-                    <input type="image"
-                       src="${pageContext.request.contextPath}/resources/img/exit.png"
-                       alt="Logout"
-                       class="log_icon"
-                       href="<c:url value="/j_spring_security_logout" />"
-                       onclick="location.href ='${pageContext.request.contextPath}/'"/>
+
+                    <i:if test="${pageContext.request.userPrincipal.name != null}">
+                        <p>Prihlásení: ${pageContext.request.userPrincipal.name}
+                            <input type="image"
+                                   src="${pageContext.request.contextPath}/resources/img/exit.png"
+                                   alt="Logout"
+                                   class="log_icon"
+                                   href="<c:url value="/j_spring_security_logout" />"
+                                   onclick="location.href ='javascript:formSubmit()'"/>
+                            
+                        </p>
+                    </i:if>
+                            
               
             </div>
                  
@@ -83,7 +105,15 @@
                     </ul>
                 </li>
                 
-                <div id="lavalamp"></div>
+                <i:if test="${pageContext.request.userPrincipal.name != null}">
+                    <li><a  class="backbutton"
+                        href="#">Prihlásení: ${pageContext.request.userPrincipal.name}</a>
+                   
+                </li>
+                </i:if>
+                
+                <div id="lavalamp"></div>                
+              
             </ul>
             </div>
             </section>
@@ -107,6 +137,17 @@
                     </button><br/>
                 </p>
 
+                        
+                        
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        <p>si Admin</p>
+                    </sec:authorize>
+                        
+                    <sec:authorize access="hasRole('ROLE_LEKAR')">
+                        <p>si Lekar</p>
+                    </sec:authorize>
+                
+                
             </center>
 
             <p id="x"></p>
