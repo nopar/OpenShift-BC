@@ -1,13 +1,12 @@
 package com.sprhib.init;
 
 import java.util.Properties;
-
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -19,7 +18,8 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
-@ComponentScan("com.sprhib")
+@ComponentScan("com.sprhib.*")
+@ImportResource(value = { "/WEB-INF/spring-security.xml" })
 @EnableWebMvc
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
@@ -37,7 +37,7 @@ public class WebAppConfig {
 	@Resource
 	private Environment env;
 	
-	@Bean
+	@Bean(name = "dataSource")
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		
