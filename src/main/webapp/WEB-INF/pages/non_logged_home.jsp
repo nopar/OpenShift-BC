@@ -18,7 +18,6 @@
         <link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet" type="text/css"/>
         <script src="${pageContext.request.contextPath}/resources/js/geoLocation.js" type="text/javascript"></script> 
         
-        
     </head>
 
     <body>
@@ -30,49 +29,23 @@
             
             <section>
                 <div id="two">
-<!--                <input type="image"
+                <input type="image"
                        src="${pageContext.request.contextPath}/resources/img/login.png"
                        alt="Login"
                        class="log_icon"
-                       onclick="location.href ='${pageContext.request.contextPath}/login'"/>-->
-            
-                    <input type="image"
+                       onclick="location.href ='${pageContext.request.contextPath}/login'"/>
+                <input type="image"
                        src="${pageContext.request.contextPath}/resources/img/exit.png"
                        alt="Logout"
                        class="log_icon"
-                       href="<c:url value="/j_spring_security_logout" />"
-                       onclick="location.href ='${pageContext.request.contextPath}/'"/>
-              
+                       onclick="location.href ='${pageContext.request.contextPath}/'"/>            
             </div>
+            
                  
             <div id="one">
             <ul id="nav">
                 <li><a id="1"
-                       href="${pageContext.request.contextPath}/logged/index.html">Home</a>
-                </li>
-                <li><a class="hsubs"
-                       id="2"
-                       onclick="posun(2)"
-                       href="${pageContext.request.contextPath}/skupiny/list.html">Skupiny</a>
-                    <ul class="subs">
-                        <li><a href="${pageContext.request.contextPath}/skupiny/add.html">Pridať skupinu</a></li>
-                        <li><a href="${pageContext.request.contextPath}/skupiny/list.html">Zoznam skupín</a></li>
-                    </ul>
-                </li>
-                <li><a class="hsubs" 
-                       id="3"
-                       onclick="posun(3)"
-                       href="${pageContext.request.contextPath}/stat/list.html">Štáty</a>
-                    <ul class="subs">
-                        <li><a href="${pageContext.request.contextPath}/stat/add.html">Pridať štát</a></li>
-                        <li><a href="${pageContext.request.contextPath}/stat/list.html">Zoznam štátov</a></li>
-                    </ul>
-                </li>
-                <li><a class="hsubs" href="#">Menu 3</a>
-                    <ul class="subs">
-                        <li><a href="#">Submenu 3-1</a></li>
-                        <li><a href="#">Submenu 3-2</a></li>
-                    </ul>
+                       href="${pageContext.request.contextPath}/index.html">Home</a>
                 </li>
                 <li><a href="#">Menu 3</a></li>
                 <li><a href="#">Menu 5</a></li>
@@ -86,32 +59,21 @@
                 <div id="lavalamp"></div>
             </ul>
             </div>
+                <br/>
+                <h3>: ${message}</h3>
             </section>
                     
                 
         <cor:if  test="${!empty message}">                
-        <h3>Message : ${message}</h3>
-	<h3>Username : ${username}</h3>	
+            <h3>Message : ${message}</h3>	
+            <h3>Username : ${username}</h3>	
         </cor:if>
                         
 
-            <h1>Home page</h1>
+            <h1>Prosím prihláste sa</h1>
 
-            <center>
-                <p>
-                    <button onclick="location.href='${pageContext.request.contextPath}/stat/getStaty'">
-                        JSON- zoznam statov
-                    </button><br/>
-                    <button onclick="location.href='${pageContext.request.contextPath}/pocitadlo.html'">
-                        pocitadlo odberov
-                    </button><br/>
-                </p>
 
-            </center>
-
-            <p id="x"></p>
-                
-        <br>
+            <p id="x"></p><br>
         <div id="mapholder"></div>
         </div>
     </body>

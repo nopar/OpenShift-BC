@@ -48,8 +48,9 @@ header .stuts span {
     margin-left:5px;
 }
 .container {
-    margin: 20px auto;
-    width: 957px;
+    margin: 3px auto;
+    width: 85%;
+    /*float: left;*/
 }
 
 
@@ -76,4 +77,45 @@ p {
 
 h1{
 	color:#D20005;
+}
+
+/*totoje pre ikonky na edit a delete*/
+input.crud_icon {
+    width: 18px;
+    height: 18px;
+    margin: 0 8px;
+}
+
+div #crud_icon_block{   
+    text-align:center;
+}
+/*END totoje pre ikonky na edit a delete*/
+
+
+/*toto je pre login a logout*/
+input.log_icon {
+    width: 23px;
+    height: 23px;
+    margin: 0 8px;
+}
+
+
+/*END login logout*/
+
+section {
+    width: 100%; 
+    height: 60px;
+    margin: auto;
+    margin: 12px 1px 1px 1px;
+}
+div#one {
+    /*MENU*/
+    width: auto;
+    /*margin-left: 0%;*/ 
+    float: left;
+}
+div#two {
+    /*LOGy*/
+    /*margin-right: 15%;*/     
+    float: right; 
 }
