@@ -9,24 +9,48 @@
     <head>
         <title>Zoznam štátov</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="../resources/css/layout.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/css/menu.css" rel="stylesheet" type="text/css"/> 
+        <link href="${pageContext.request.contextPath}/resources/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet" type="text/css"/> 
 
     </head>
-    <body>
+    <body onclick="posun(3)">
         
         <div class="container">
+            <section>
+                <div id="two">
+                <input type="image"
+                       src="${pageContext.request.contextPath}/resources/img/login.png"
+                       alt="Login"
+                       class="log_icon"
+                       onclick="location.href ='${pageContext.request.contextPath}/login'"/>
+                <input type="image"
+                       src="${pageContext.request.contextPath}/resources/img/exit.png"
+                       alt="Logout"
+                       class="log_icon"
+                       onclick="location.href ='${pageContext.request.contextPath}/'"/>            
+            </div>
+                 
+            <div id="one">
             <ul id="nav">
-                <li><a href="${pageContext.request.contextPath}/index.html">Home</a>
+                <li><a id="1"
+                       href="${pageContext.request.contextPath}/index.html">Home</a>
                 </li>
-                <li><a class="hsubs" href="${pageContext.request.contextPath}/skupiny/list.html">Skupiny</a>
+                <li><a class="hsubs"
+                       id="2"
+                       onclick="posun(2)"
+                       href="${pageContext.request.contextPath}/skupiny/list.html">Skupiny</a>
                     <ul class="subs">
                         <li><a href="${pageContext.request.contextPath}/skupiny/add.html">Pridať skupinu</a></li>
+                        <li><a href="${pageContext.request.contextPath}/skupiny/list.html">Zoznam skupín</a></li>
                     </ul>
                 </li>
-                <li><a class="hsubs" href="${pageContext.request.contextPath}/stat/list.html">Štáty</a>
+                <li><a class="hsubs" 
+                       id="3"
+                       onclick="posun(3)"
+                       href="${pageContext.request.contextPath}/stat/list.html">Štáty</a>
                     <ul class="subs">
                         <li><a href="${pageContext.request.contextPath}/stat/add.html">Pridať štát</a></li>
+                        <li><a href="${pageContext.request.contextPath}/stat/list.html">Zoznam štátov</a></li>
                     </ul>
                 </li>
                 <li><a class="hsubs" href="#">Menu 3</a>
@@ -35,12 +59,19 @@
                         <li><a href="#">Submenu 3-2</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Menu 4</a></li>
+                <li><a href="#">Menu 3</a></li>
                 <li><a href="#">Menu 5</a></li>
-                <li><a href="#">Menu 6</a></li>
-                <li><a href="javascript:history.back()">Back</a></li>
+                <li><a  onclick="posun(6)"
+                        href="#">Nástroje</a>
+                    <ul class="subs">
+                        <li><a href="#" onclick="getLocation()">Nájdi najbližšiu stanicu</a></li>
+                    </ul>
+                </li>
+                
                 <div id="lavalamp"></div>
             </ul>
+            </div>
+            </section>
                     
         <h1>Zoznam štátov</h1>
         
@@ -65,12 +96,20 @@
                             <td>${statik.stat}</td>
                             <td>${statik.skratka}</td>
                             <td>
-                                <button onclick="location.href = '${pageContext.request.contextPath}/stat/edit/${statik.idStat}.html'">
-                                    Edituj štát
-                                </button>
-                                <button onclick="location.href = '${pageContext.request.contextPath}/stat/delete/${statik.idStat}.html'">
-                                    Zmaž štát
-                                </button>
+                                <div id="crud_icon_block">
+                                    <input type="image"
+                                           src="../resources/img/edit.png"
+                                           alt="Edituj štát"
+                                           class="crud_icon"
+                                           onclick="location.href = '${pageContext.request.contextPath}/stat/edit/${statik.idStat}.html'">
+                                
+                                    <input type="image"
+                                           src="../resources/img/delete.png"
+
+                                           alt="Zmaž štát"
+                                           class="crud_icon"
+                                           onclick="location.href ='${pageContext.request.contextPath}/stat/delete/${statik.idStat}.html'">
+                                </div>
                             </td>
                         </tr>
                     </c:forEach>

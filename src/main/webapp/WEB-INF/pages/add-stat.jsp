@@ -10,8 +10,8 @@
     <head>
         <title>Pridaj štát</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-         <link href="../resources/css/layout.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/css/menu.css" rel="stylesheet" type="text/css"/>
+         <link href="${pageContext.request.contextPath}/resources/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <h1>Pridaj štát</h1>

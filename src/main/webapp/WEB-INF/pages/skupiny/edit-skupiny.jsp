@@ -10,13 +10,13 @@
     <head>
          <title>Editácia skupiny</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-         <link href="../../resources/css/layout.css" rel="stylesheet" type="text/css"/>
-        <link href="../../resources/css/menu.css" rel="stylesheet" type="text/css"/>
+         <link href="${pageContext.request.contextPath}/resources/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet" type="text/css"/>
        
     </head>
     <body>
-        <h1>Edit team page</h1>
-        <p>Here you can edit the existing team.</p>
+        <h1>Editácia skupiny</h1>
+        
         <p>${message}</p>
 
         <form:form method="POST" commandName="skupiny" action="${pageContext.request.contextPath}/skupiny/edit/${stat.idStat}.html">
