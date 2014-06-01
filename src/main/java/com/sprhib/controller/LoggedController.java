@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -17,8 +18,8 @@ public class LoggedController {
 //    @Autowired
 //    private EntityService<Odber> odberService;
 
-    @RequestMapping(value = "/")
-    public ModelAndView mainPage(ModelMap model) {
+    @RequestMapping(value = { "/", "", "/index" }, method = RequestMethod.GET)
+    public ModelAndView mainPage() {
         
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        String name = user.getUsername();
@@ -26,20 +27,10 @@ public class LoggedController {
 //        model.addAttribute("username", name);
 //        model.addAttribute("message", "Spring Security login + database example");
 //        
-//        
-        return new ModelAndView("home");
+        ModelAndView model = new ModelAndView();
+        model.setViewName("home");
+
+        return model;
     }
 
-    
-    @RequestMapping(value = "/index")
-    public ModelAndView indexPage(ModelMap model) {
-        
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        String name = user.getUsername();
-//
-//        model.addAttribute("username", name);
-//        model.addAttribute("message", "Spring Security login + database example");
-//        
-        return new ModelAndView("home");
-    }
 }

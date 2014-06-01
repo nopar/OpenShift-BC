@@ -2,7 +2,6 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="cor" %>
-<%@taglib prefix="i" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@page session="true"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
@@ -17,6 +16,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>NTS - Bakalarka</title>
 
+        <link rel="icon" href="${pageContext.request.contextPath}/resources/favicon.ico"/>
         <link href="${pageContext.request.contextPath}/resources/css/layout.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet" type="text/css"/>
         <script src="${pageContext.request.contextPath}/resources/js/geoLocation.js" type="text/javascript"></script> 
@@ -39,7 +39,7 @@
                        class="log_icon"
                        onclick="location.href ='${pageContext.request.contextPath}/login'"/>-->
 
-                    <i:url value="/j_spring_security_logout" var="logoutUrl" />
+                    <cor:url value="/j_spring_security_logout" var="logoutUrl" />
                     <form action="${logoutUrl}" method="post" id="logoutForm">
                         <input type="hidden" name="${_csrf.parameterName}"
                                value="${_csrf.token}" />
@@ -52,7 +52,7 @@
                     
             
 
-                    <i:if test="${pageContext.request.userPrincipal.name != null}">
+                    <cor:if test="${pageContext.request.userPrincipal.name != null}">
                         <p>Prihlásení: ${pageContext.request.userPrincipal.name}
                             <input type="image"
                                    src="${pageContext.request.contextPath}/resources/img/exit.png"
@@ -62,7 +62,7 @@
                                    onclick="location.href ='javascript:formSubmit()'"/>
                             
                         </p>
-                    </i:if>
+                    </cor:if>
                             
               
             </div>
@@ -105,12 +105,13 @@
                     </ul>
                 </li>
                 
-                <i:if test="${pageContext.request.userPrincipal.name != null}">
-                    <li><a  class="backbutton"
-                        href="#">Prihlásení: ${pageContext.request.userPrincipal.name}</a>
+                <cor:if test="${pageContext.request.userPrincipal.name != null}">
+                    <li style="float: right; radius: 5px";>
+                        <a  class="backbutton"
+                            href="#">Prihlásení: ${pageContext.request.userPrincipal.name}</a>
                    
                 </li>
-                </i:if>
+                </cor:if>
                 
                 <div id="lavalamp"></div>                
               
@@ -146,6 +147,10 @@
                     <sec:authorize access="hasRole('ROLE_LEKAR')">
                         <p>si Lekar</p>
                     </sec:authorize>
+                        
+                        <cor:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
+                            Show admin menu items.
+                        </cor:if>
                 
                 
             </center>

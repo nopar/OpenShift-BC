@@ -42,11 +42,11 @@ public class MainController {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
+			model.addObject("error", "Nesprávne meno alebo heslo!");
 		}
 
 		if (logout != null) {
-			model.addObject("msg", "You've been logged out successfully.");
+			model.addObject("msg", "Boli ste úspešne odhlásený.");
 		}
 		model.setViewName("login");
 

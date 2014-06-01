@@ -3,6 +3,10 @@
 <html>
 <head>
 <title>Login Page</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="<c:url value='/resources/img/favicon.ico'/>" />
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
+
 <style>
 .error {
 	padding: 15px;
@@ -33,15 +37,22 @@
 	-moz-border-radius: 2px;
 	border: 1px solid #000;
 }
+
+html, body {
+    background-image: url('resources/img/bg_shadow.png'), url('resources/img/bg_pattern.png');
+    background-repeat: repeat-x, repeat;
+    background-position: top center, top center;
+}
 </style>
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-	<h1>Spring Security Login Form (Database Authentication)</h1>
-
+<center>
+	<h1>Národná Transfúzna Stanica <BR /> (Database Authentication)</h1>
+</center>
 	<div id="login-box">
 
-		<h3>Login with Username and Password</h3>
+		<center><h3>Prihlasvací formulár</h3></center>
 
 		<c:if test="${not empty error}">
 			<div class="error">${error}</div>
@@ -55,12 +66,18 @@
 
 			<table>
 				<tr>
-					<td>User:</td>
-                                        <td><input type='text' name='username' value="nopar"></td>
+					<td>Login:</td>
+                                        <td><input type='text' 
+                                                   name='username' 
+                                                   value="nopar"
+                                                   placeholder="nick alebo email"></td>
 				</tr>
 				<tr>
-					<td>Password:</td>
-                                        <td><input type='password' name='password' value="root"/></td>
+					<td>Heslo:</td>
+                                        <td><input type='password' 
+                                                   name='password' 
+                                                   value="root"
+                                                   placeholder="zadaj heslo"/></td>
 				</tr>
 				<tr>
 					<td colspan='2'><input name="submit" type="submit"

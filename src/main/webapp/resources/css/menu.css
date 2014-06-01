@@ -5,12 +5,17 @@
 }
 #nav {
     background: url('../img/menu_bg.png') no-repeat scroll 0 0 transparent;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
     clear: both;
     font-size: 12px;
     height: 58px;
     padding: 0 0 0 9px;
     position: relative;
-    width: 1020px;
+    width: 800px;
 }
 #nav ul {
     background-color: #222;
@@ -135,6 +140,5 @@
     left: 490px;
 }
 #nav li:nth-of-type(8):hover ~ #lavalamp {
-    left: 565px;
+    left: 685px;
 }
-
